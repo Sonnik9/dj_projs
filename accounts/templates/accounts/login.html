@@ -1,0 +1,23 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block content %}
+    <div class="container">
+
+        <form method="POST">
+            {% csrf_token %}
+            {% for f in form %} 
+                <p class="p_form"><label class="form-label" for="{{ f.id_for_label }}"> {{ f.label }}: </label> {{ f }}</p>
+                <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <div class="cont_btn">
+                <button class="login-button" type="submit">Log in</button>
+                <button><a href="{% url 'accounts:register'%}" class="login-button">Sign up</a></button>
+
+            </div>
+            
+        </form>
+
+    </div>
+        
+{% endblock %}

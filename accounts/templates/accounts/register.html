@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <form method="POST">
+        {% csrf_token %}
+        {% for f in form %} 
+           <p class="p_form"><label class="form-label" for="{{ f.id_for_label }}"> {{ f.label }}: </label> {{ f }}</p>
+           <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <button class="login-button" type="submit">Sign up</button>
+    </form>
+
+</div>
+{% endblock %}

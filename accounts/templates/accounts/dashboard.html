@@ -1,0 +1,33 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+  <div class="dashboard-container">
+    
+    <nav class="list-menu">
+        <p class="menu-item"></p>
+        <p class="menu-item"></p>
+        <p class="menu-item"></p>
+        <p class="menu-item"></p>
+        {% if request.user.is_authenticated %}
+            <p class="menu-item">{{ user.username }}</p>
+            <p class="menu-item">
+                <a href="{% url 'accounts:logout' %}">Logout</a>
+            </p> 
+        {% endif %}            
+        
+    </nav>
+    
+      <h1 class="dashboard-heading">Welcome, {{ user.username }}!</h1>
+      <div class="dashboard-info">
+        <h2 class="dashboard-subheading">Account Information</h2>
+        <ul>
+          <li><strong>Username:</strong> {{ user.username }}</li>
+          <li><strong>Email:</strong> {{ user.email }}</li>
+          
+        </ul>
+      </div>
+
+  </div>
+{% endblock %}
+
+
